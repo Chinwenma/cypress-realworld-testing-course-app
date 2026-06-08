@@ -13,6 +13,6 @@ describe("Newsletter Subscribe Form", () => {
   })
 
   it.only("allows users to subscribe to the email list", () => {
-    cy.get('[data-test="email-input"]')
+    cy.getByData("email-input")
   })
 })
