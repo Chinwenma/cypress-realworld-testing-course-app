@@ -5,7 +5,7 @@ import HomeFeatures from "../components/Home/HomeFeatures"
 import HomeCourses from "../components/Home/HomeCourses"
 import { progressService } from "../machines/progressService"
 import { fetchCourses } from "../lib/fetch-courses"
-import Subscribe from "../components/Home/Subscribe"
+// import Subscribe from "../components/Home/Subscribe"
 export default function Home({ content, courses }) {
   return (
     <Layout
@@ -22,7 +22,7 @@ export default function Home({ content, courses }) {
       </Head>
 
       <HomeHero />
-      <Subscribe />
+      {/* <Subscribe /> */}
       <HomeFeatures />
       <HomeCourses
         courses={courses}
