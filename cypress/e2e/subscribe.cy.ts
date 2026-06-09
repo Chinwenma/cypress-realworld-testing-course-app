@@ -1,4 +1,3 @@
-import { eq } from "lodash"
 
 describe("Newsletter Subscribe Form", () => {
   beforeEach(() => {
