@@ -1,3 +1,36 @@
+describe("home page", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:3000")
+  })
+  context("hero-section", () => {
+    it("my first test", () => {
+      cy.getByData("hero-heading")
+        .should("exist")
+        .contains("Testing Next.js Applications with Cypress")
+    })
+    it("1st feature test", () => {
+      cy.get("dt").eq(0).contains("4 Courses")
+    })
+  })
+  context("Courses section", () => {
+    it("Course:Testing Your First Next.js Application", () => {
+      cy.getByData("course-0").should("exist").find("a").eq(3).click()
+      cy.location("pathname") .should("eq" , "/testing-your-first-application")
+    })
+    it("Course:Testing Your First Next.js Application", () => {
+      cy.getByData("course-1").should("exist").find("a") .contains("Get started").click()
+      cy.location("pathname") .should("equal" , "/testing-foundations")
+    })
+     it.only("Course:Testing Your First Next.js Application", () => {
+      cy.getByData("course-2").should("exist").find("a").contains("Get started").click()
+      cy.location("pathname") .should("equal" , "/cypress-fundamentals")
+    })
+  })
+})
+
+
+
+
 // describe('Home Page', () => {
 //   beforeEach(() => {
 //     cy.visit('http://localhost:3000')
@@ -12,24 +45,7 @@
 //     cy.get('dt') .eq(1) .contains('25+ Lessons')
 // })
 // it.only('3rd feature test', () => {
-//     cy.get('dt') .eq(2) .contains('Free and Open Source')  
+//     cy.get('dt') .eq(2) .contains('Free and Open Source')
 // })
 // })
-// 
-describe("home page", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:3000")
-  })
-
-  it("the h1 contains the correct text", () => {
-    cy.getByData("hero-heading").contains(
-      "Testing Next.js Applications with Cypress"
-    )
-  })
-
-  it("the features on the homepage are correct", () => {
-    cy.get("dt").eq(0).contains("4 Courses")
-    cy.get("dt").eq(1).contains("25+ Lessons")
-    cy.get("dt").eq(2).contains("Free and Open Source")
-  })
-})
+//
